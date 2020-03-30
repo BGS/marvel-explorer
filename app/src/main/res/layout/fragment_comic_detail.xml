@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".view.ui.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/comic_btn_container">
+
+        <ImageView
+            android:id="@+id/comicBannerView"
+            android:layout_width="422dp"
+            android:layout_height="200dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <WebView
+            android:id="@+id/comicContentView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/comicBannerView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/comic_btn_container"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorPrimary"
+        android:padding="@dimen/_20dp">
+
+        <Button
+            android:id="@+id/comic_back_button"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:background="@drawable/ic_arrow_backward"
+            android:enabled="false" />
+
+        <Button
+            android:id="@+id/comic_forward_button"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_toEndOf="@id/comic_back_button"
+            android:background="@drawable/ic_arrow_forward"
+            android:enabled="false" />
+
+        <Button
+            android:id="@+id/comic_refresh_button"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_marginEnd="@dimen/_20dp"
+            android:layout_toEndOf="@id/comic_forward_button"
+            android:background="@drawable/ic_refresh" />
+
+        <Button
+            android:id="@+id/comic_star_button"
+            android:layout_width="@dimen/_25dp"
+            android:layout_height="@dimen/_25dp"
+            android:layout_marginStart="80dp"
+            android:layout_toEndOf="@id/comic_refresh_button"
+            android:background="@drawable/ic_star_black" />
+
+        <ProgressBar
+            android:id="@+id/comic_progress_view"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="@dimen/_20dp"
+            android:layout_height="@dimen/_20dp"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="@dimen/_20dp"
+            android:layout_toEndOf="@id/comic_refresh_button" />
+
+    </RelativeLayout>
+</RelativeLayout>

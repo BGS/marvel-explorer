@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@id/comicListFragment">
+    <fragment
+        android:id="@+id/comicListFragment"
+        android:name="com.gabi.marvel_explorer.view.ui.fragments.ComicListFragment"
+        android:label="Marvel Explorer"
+        tools:layout="@layout/fragment_comics_list">
+        <action
+            android:id="@+id/action_comicListFragment_to_comicDetailFragment"
+            app:destination="@id/comicDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comicDetailFragment"
+        android:name="com.gabi.marvel_explorer.view.ui.fragments.ComicDetailFragment"
+        android:label="Marvel Explorer">
+        <argument
+            android:name="url"
+            app:argType="string" />
+        <argument
+            android:name="cover_url"
+            app:argType="string" />
+        <argument
+            android:name="comic_title"
+            app:argType="string" />
+    </fragment>
+</navigation>
