@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_comicListFragment_to_comicDetailFragment"
             app:destination="@id/comicDetailFragment" />
+        <action
+            android:id="@+id/action_comicListFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
     </fragment>
     <fragment
         android:id="@+id/comicDetailFragment"
@@ -26,5 +29,12 @@
         <argument
             android:name="comic_title"
             app:argType="string" />
+        <action
+            android:id="@+id/action_comicDetailFragment_to_userProfileFragment"
+            app:destination="@id/userProfileFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.gabi.marvel_explorer.view.ui.fragments.UserProfileFragment"
+        android:label="Favorite Comics" />
 </navigation>

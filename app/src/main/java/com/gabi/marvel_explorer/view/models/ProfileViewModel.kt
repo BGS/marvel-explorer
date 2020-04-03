@@ -1,19 +1,20 @@
 package com.gabi.marvel_explorer.view.models
 
 import androidx.lifecycle.MutableLiveData
-import com.gabi.marvel_explorer.model.Item
-import com.gabi.marvel_explorer.model.GetComicsList
+import com.gabi.marvel_explorer.model.*
 import com.gabi.marvel_explorer.view.models.base.BaseViewModel
 
-class ComicListViewModel : BaseViewModel() {
-    val comicListLive = MutableLiveData<List<Item>>()
+class ProfileViewModel : BaseViewModel() {
+    val profileData = MutableLiveData<List<FavoriteComics>>()
 
-    fun fetchComicList() {
+
+    fun fetchProfileData() {
         dataLoading.value = true
-        GetComicsList.getInstance().getComicList { isSuccess, response ->
+        GetProfileData.getInstance().getProfileData { isSuccess, response ->
             dataLoading.value = false
             if (isSuccess) {
-                comicListLive.value = response?.data?.results
+                profileData.value = response
+
                 empty.value = false
             } else {
                 empty.value = true

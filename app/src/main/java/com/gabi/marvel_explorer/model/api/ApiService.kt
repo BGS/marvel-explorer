@@ -2,7 +2,7 @@ package com.gabi.marvel_explorer.model.api
 
 
 import com.gabi.marvel_explorer.model.MarvelApiResponseComics
-import com.gabi.marvel_explorer.view.utils.Constants
+import com.gabi.marvel_explorer.utils.Constants
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

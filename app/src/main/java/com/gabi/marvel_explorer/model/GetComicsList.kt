@@ -8,7 +8,7 @@ import retrofit2.Response
 class GetComicsList {
 
     // GET comic list
-    fun getRepoList(onResult: (isSuccess: Boolean, response: MarvelApiResponseComics?) -> Unit) {
+    fun getComicList(onResult: (isSuccess: Boolean, response: MarvelApiResponseComics?) -> Unit) {
 
         ApiClient.instance.getComics().enqueue(object : Callback<MarvelApiResponseComics> {
             override fun onResponse(call: Call<MarvelApiResponseComics>?, response: Response<MarvelApiResponseComics>?) {

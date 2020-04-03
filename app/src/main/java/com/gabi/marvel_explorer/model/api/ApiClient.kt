@@ -1,9 +1,8 @@
 package com.gabi.marvel_explorer.model.api
 
-import com.gabi.marvel_explorer.view.utils.Constants.Companion.BASE_URL
-import com.gabi.marvel_explorer.view.utils.Constants.Companion.DEBUG
-import com.gabi.marvel_explorer.view.utils.Constants.Companion.MARVEL_API_URL
-import com.gabi.marvel_explorer.view.utils.Constants.Companion.REQUEST_TIMEOUT_DURATION
+import com.gabi.marvel_explorer.utils.Constants.Companion.DEBUG
+import com.gabi.marvel_explorer.utils.Constants.Companion.MARVEL_API_URL
+import com.gabi.marvel_explorer.utils.Constants.Companion.REQUEST_TIMEOUT_DURATION
 import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

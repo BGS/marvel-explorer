@@ -8,27 +8,36 @@ import android.view.View
 import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.gabi.marvel_explorer.R
+import com.gabi.marvel_explorer.model.FavoriteComics
+import com.gabi.marvel_explorer.utils.FirebaseFirestoreUtil
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.activity_main.view.*
+import kotlinx.android.synthetic.main.activity_main.view.toolbar
 import kotlinx.android.synthetic.main.fragment_comic_detail.*
 import org.jetbrains.anko.backgroundColor
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import java.util.*
 
 
 class ComicDetailFragment : Fragment() {
-
+    private var banner_url : String? = ""
+    private var comic_title: String? = ""
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_comic_detail, container, false)
+
 
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val url = arguments?.let { ComicDetailFragmentArgs.fromBundle(it).url }
-        val banner_url = arguments?.let { ComicDetailFragmentArgs.fromBundle(it).coverUrl }
-        val comic_title =  arguments?.let { ComicDetailFragmentArgs.fromBundle(it).comicTitle }
+         banner_url = arguments?.let { ComicDetailFragmentArgs.fromBundle(it).coverUrl }
+         comic_title =  arguments?.let { ComicDetailFragmentArgs.fromBundle(it).comicTitle }
 
         comicBannerView.backgroundColor = Color.parseColor("#202020")
         Picasso.get().load(banner_url).fit().into(comicBannerView)
@@ -39,6 +48,17 @@ class ComicDetailFragment : Fragment() {
     }
 
     private fun setClickListeners() {
+        comic_star_button.onClick {
+            val favoriteComic = FavoriteComics(banner_url, comic_title)
+            FirebaseFirestoreUtil.pushFavoriteComicCurrentUser(favoriteComic)
+            val text = "Marking as favorite"
+            val duration = Toast.LENGTH_SHORT
+
+            val toast = Toast.makeText(activity, text, duration)
+            toast.show()
+
+
+        }
         comic_back_button.onClick {
             comicContentView.goBack()
         }

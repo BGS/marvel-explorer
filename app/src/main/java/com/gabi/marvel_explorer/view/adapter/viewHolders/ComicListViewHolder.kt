@@ -15,18 +15,18 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 class ComicListViewHolder constructor(private val dataBinding: ViewDataBinding, private val comicListViewModel: ComicListViewModel)
     : RecyclerView.ViewHolder(dataBinding.root) {
 
-    val avatarImage = itemView.comicCoverView
-    val comicName = itemView.comicName
+    val avatarImage = itemView.profileComicCover
+
 
     fun setup(itemData: Item) {
         dataBinding.setVariable(BR.itemData, itemData)
         dataBinding.executePendingBindings()
-        comicName.text = itemData.title
-        val imageUrl = itemData.thumbnail.path + "/portrait_large." + itemData.thumbnail.extension
+
+
         val coverImageUrl = itemData.thumbnail.path + "/landscape_large." + itemData.thumbnail.extension
         val comicTitle = itemData.title.ifEmpty { "Marvel Explorer" }
         Picasso.get().setLoggingEnabled(true)
-        Picasso.get().load(imageUrl).fit().into(avatarImage)
+        Picasso.get().load(coverImageUrl).into(avatarImage)
 
         itemView.onClick {
            val bundle = bundleOf("url" to itemData.urls[0].url,

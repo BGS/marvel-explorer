@@ -15,13 +15,23 @@
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name="com.gabi.marvel_explorer.view.ui.MainActivity"
+            android:name=".view.ui.activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.ui.activities.LoginActivity"
+            android:label="Log in"
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity
+            android:name=".view.ui.activities.RegisterActivity"
+            android:label="Sign up"
+            android:theme="@style/AppTheme.NoActionBar">
         </activity>
     </application>
 

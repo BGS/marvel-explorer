@@ -9,7 +9,7 @@
 
         <variable
             name="itemData"
-            type="com.gabi.marvel_explorer.model.Item" />
+            type="com.gabi.marvel_explorer.model.FavoriteComics" />
     </data>
 
 

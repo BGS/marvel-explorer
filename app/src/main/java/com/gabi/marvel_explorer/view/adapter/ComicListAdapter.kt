@@ -23,7 +23,7 @@ class ComicListAdapter(private val comicListViewModel: ComicListViewModel) : Rec
         holder.setup(comicList[position])
     }
 
-    fun updateRepoList(comicList: List<Item>) {
+    fun updateComicList(comicList: List<Item>) {
         this.comicList = comicList
         notifyDataSetChanged()
     }
